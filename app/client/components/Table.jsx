@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
@@ -20,7 +21,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => (
     placeholder="Search..."
     value={searchTerm}
     onChange={(e) => setSearchTerm(e.target.value)}
-    className="px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-[200px]"
+    className=" px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-[200px]"
   />
 );
 
@@ -63,11 +64,11 @@ const Table = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-[20px] shadow-lg">
+    <div className="bg-white px-[30px] p-6 rounded-[20px] shadow-lg">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-800">All Clients</h1>
+      <div className="flex px-[30px] justify-between items-center mb-6">
+        <div className="mb-[38px]">
+          <h1 className="text-2xl mb-2 font-bold text-gray-800">All Clients</h1>
           <p className="text-dark_blue">Active Members</p>
         </div>
         <div className="flex space-x-4">
@@ -77,53 +78,76 @@ const Table = () => {
       </div>
 
       {/* Table */}
-      <table className="w-full border-collapse">
-        <thead>
-          <tr className="bg-white text-start border-b border-gray-300">
-            <th className="text-left px-4 py-2">Name</th>
-            <th className="text-left px-4 py-2">Country</th>
-            <th className="text-left px-4 py-2">Accreditation</th>
-            <th className="text-left px-4 py-2">Email</th>
-            <th className="text-left px-4 py-2">Organization</th>
-            <th className="text-left px-4 py-2">Actions</th>
-          </tr>
-         
-        </thead>
-    
-        <tbody>
-          {currentData.map((item) => (
-            <tr key={item.id} className="border-b border-gray-200">
-              <td className="px-4 py-2">{item.name}</td>
-              <td className="px-4 py-2">{item.country}</td>
-              <td className="px-4 py-2">{item.accreditation}</td>
-              <td className="px-4 py-2">{item.email}</td>
-              <td className="px-4 py-2">{item.organization}</td>
-              <td className="px-4 py-2 text-center">
-                <button className="px-4 py-2 bg-dark_blue text-white rounded-md hover:bg-blue-800">
-                  Details
-                </button>
-              </td>
+      <div className="px-[30px]">
+        <table className="w-full ">
+          <thead>
+            <tr className="bg-white text-start text-table_header text-[14px] font-semibold border-b w-full border-gray-300">
+              <th className="text-left  py-[24px]">Name</th>
+              <th className="text-left  py-[24px]">Country</th>
+              <th className="text-left  py-[24px]">Accreditation</th>
+              <th className="text-left  py-[24px]">Email</th>
+              <th className="text-left  py-[24px]">Organization</th>
+              <th className="text-center  py-[24px]">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody className="">
+            {currentData.map((item) => (
+              <tr
+                key={item.id}
+                className="border-b  font-medium text-[14px] text-table border-gray-200"
+              >
+                <td className=" py-[24px]">{item.name}</td>
+                <td className=" py-[24px]">{item.country}</td>
+                <td className=" py-[24px]">{item.accreditation}</td>
+                <td className=" py-[24px]">{item.email}</td>
+                <td className=" py-[24px]">{item.organization}</td>
+                <td className="  py-[24px] text-center">
+                  <button className="px-[12px] w-[140px] h-[33px] py-[4px] rounded-[10px] bg-dark_blue text-white  hover:bg-blue-800">
+                    Details
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Pagination */}
-      <div className="mt-4 flex justify-end">
+      <div className="mt-4 px-[30px] flex justify-end">
         <ReactPaginate
-          previousLabel={"← Previous"}
-          nextLabel={"Next →"}
+          previousLabel={
+            <Image
+            src="/SVG/left.svg"
+            width={26}
+            height={24}
+            alt={`left Logo`}
+            className=" object-contain"
+          />
+          }
+          nextLabel={
+            <Image
+            src="/SVG/right.svg"
+            width={26}
+            height={24}
+            alt={`right Logo`}
+            className=" object-contain"
+          />
+          }
           breakLabel={"..."}
           pageCount={pageCount}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={handlePageClick}
-          containerClassName="flex items-center space-x-2"
-          activeClassName="bg-blue-500 text-white rounded-md px-3 py-1"
-          pageClassName="px-3 py-1 border rounded-md"
-          previousClassName="px-3 py-1 border rounded-md"
-          nextClassName="px-3 py-1 border rounded-md"
-          breakClassName="px-3 py-1"
+          containerClassName="flex text-[12px] gap-[30px]  items-center space-x-4"
+          activeLinkClassName="!bg-[#023562] text-[12px] py-[2px]  !text-white" // Fixed active class application
+          pageClassName=" w-[26px] text-[12px]   text-[12px]   h-[24px] border rounded-[3px] bg-[#F5F7FA] hover:bg-gray-200 transition"
+          pageLinkClassName="block  py-[2px] w-full h-full text-center"
+          previousClassName=" rounded-[3px] bg-[#F5F7FA] hover:bg-gray-200 transition"
+          nextClassName=" rounded-[3px] bg-[#F5F7FA] hover:bg-gray-200 transition"
+          breakClassName="w-[26px] h-[24px] text-gray-500"
+          disabledClassName="opacity-50 cursor-not-allowed"
+          renderOnZeroPageCount={null}
         />
       </div>
     </div>
