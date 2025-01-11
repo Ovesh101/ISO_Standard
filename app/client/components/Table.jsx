@@ -16,29 +16,29 @@ const mockData = Array.from({ length: 20 }, (_, i) => ({
 
 // Reusable SearchBar Component
 const SearchBar = ({ searchTerm, setSearchTerm }) => (
-  <input
-    type="text"
-    placeholder="Search..."
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className=" px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-[200px]"
-  />
-);
+    <input
+      type="text"
+      placeholder="Search..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      className="px-4 py-2 text-[12px] bg-[#F5F7FA]  rounded-[3px] shadow-sm focus:outline-none  w-[380px] h-[38px]"
+    />
+  );
 
 // Reusable SortFilter Component
 const SortFilter = ({ sortBy, setSortBy }) => (
-  <select
-    value={sortBy}
-    onChange={(e) => setSortBy(e.target.value)}
-    className="px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-  >
-    <option value="newest">Sort by Newest</option>
-    <option value="oldest">Sort by Oldest</option>
-  </select>
-);
+    <select
+      value={sortBy}
+      onChange={(e) => setSortBy(e.target.value)}
+      className="px-4 text-[12px] py-2 bg-[#F5F7FA]  rounded-[3px] shadow-sm focus:outline-none  w-[271px] h-[38px]"
+    >
+      <option value="newest" className={`text-black ${sortBy === 'newest' ? 'font-bold' : 'text-gray-500'}`}>Sort by: Newest</option>
+      <option value="oldest" className={`text-black ${sortBy === 'oldest' ? 'font-bold' : 'text-gray-500'}`}>Sort by: Oldest</option>
+    </select>
+  );
 
-const Table = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+const Table = ({clientName}) => {
+  const [searchTerm, setSearchTerm] = useState(clientName);
   const [sortBy, setSortBy] = useState("newest");
   const [currentPage, setCurrentPage] = useState(0);
 

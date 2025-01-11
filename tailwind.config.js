@@ -20,7 +20,8 @@ module.exports = {
         custom_grey:"#8D92A2",
         title:"#1E1E1E",
         table:"#292D32",
-        table_header:"#4D4D4D"
+        table_header:"#4D4D4D",
+        light_gray:"#F5F7FA"
       },
     },
   },

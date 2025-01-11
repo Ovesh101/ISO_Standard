@@ -6,13 +6,15 @@ export default function Header() {
     <header className="flex mt-2 items-center p-2 mx-2 rounded-[20px] justify-between bg-white h-[79px] shadow-md ">
       {/* Logo */}
       <div className="flex gap-20 pl-[40px] items-center">
+        <Link href="/">
         <img
           src="/ACS.png"
           alt="Logo"
           className="h-[36px] w-auto" // Adjust logo dimensions as needed
         />
+        </Link>
         <nav className="flex  space-x-10">
-          <Link href="#home" className="text-nav text-[16px] hover:text-gray-700 font-semibold">
+          <Link href="/" className="text-nav text-[16px] hover:text-gray-700 font-semibold">
             Home
           </Link>
           <Link
