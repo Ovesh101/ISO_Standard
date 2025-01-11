@@ -31,7 +31,7 @@ const Certificate = () => {
   ];
 
   return (
-    <div className="rounded-lg mt-2 px-[130px] pt-[130px] shadow-md bg-white">
+    <div className="rounded-lg mt-2 pb-[150px] px-[130px] pt-[130px] shadow-md bg-white">
       {/* Title with SVG */}
       <div className="flex gap-5  items-center mb-8">
         {/* SVG Icon */}

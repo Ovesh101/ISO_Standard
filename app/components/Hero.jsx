@@ -2,7 +2,7 @@ import ISO_ICON from "./ISO_ICON";
 
 const Hero = () => {
   return (
-    <div className="rounded-[20px] mt-2 shadow-md relative pt-[100px] bg-gradient-to-b from-[#046CC8] via-[#046CC8] to-dark_blue text-white flex flex-col items-center justify-center px-6 text-center">
+    <div className="rounded-[20px]  shadow-md relative pt-[100px] bg-gradient-to-b from-[#046CC8] via-[#046CC8] to-dark_blue text-white flex flex-col items-center justify-center px-6 text-center">
       {/* Title */}
       <div className="text-[60px] leading-[70px] w-[615px] font-bold mb-4">
         Atlantic Certification Services

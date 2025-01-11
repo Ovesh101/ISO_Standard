@@ -18,7 +18,9 @@ module.exports = {
         dark_blue:"#023562",
         light_blue:"#65B7FF",
         custom_grey:"#8D92A2",
-        title:"#1E1E1E"
+        title:"#1E1E1E",
+        table:"#292D32",
+        table_header:"#4D4D4D"
       },
     },
   },

@@ -2,6 +2,8 @@ import { Inter } from "next/font/google"; // Import Inter from Google Fonts
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { NextUIProvider } from "@nextui-org/react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // Configure the Inter font
 const inter = Inter({
@@ -20,7 +22,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.variable}> 
       <body className="antialiased"> 
         <Toaster /> 
+        <Header />
         <NextUIProvider>{children}</NextUIProvider> 
+        <Footer />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header className="flex items-center p-2 mt-2 rounded-[20px] justify-between bg-white h-[79px] shadow-md ">
+    <header className="flex mt-2 items-center p-2 mx-2 rounded-[20px] justify-between bg-white h-[79px] shadow-md ">
       {/* Logo */}
       <div className="flex gap-20 pl-[40px] items-center">
         <img
@@ -26,6 +26,12 @@ export default function Header() {
             className="text-[#18191F] text-[16px] hover:text-gray-700 font-semibold"
           >
             Features
+          </Link>
+          <Link
+            href="/client"
+            className="text-[#18191F] text-[16px] hover:text-gray-700 font-semibold"
+          >
+            Clients
           </Link>
         </nav>
       </div>
