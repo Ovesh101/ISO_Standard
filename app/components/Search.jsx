@@ -15,7 +15,7 @@ const Search = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center p-6"
+      className="min-h-screen mt-2 rounded-[15px]  flex flex-col items-center justify-center p-6"
       style={{
         background: "radial-gradient(circle, #046CC8 22%, #023562 100%)",
       }}
@@ -41,7 +41,7 @@ const Search = () => {
         />
         <button
           onClick={handleSearch}
-          className="bg-blue-600 text-white px-6 py-2 rounded-r-md hover:bg-blue-700"
+          className="bg-light_blue text-dark_blue  px-6 py-2 rounded-r-md hover:bg-dark_blue hover:text-light_blue "
         >
           Search
         </button>

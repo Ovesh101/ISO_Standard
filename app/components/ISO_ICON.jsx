@@ -1,7 +1,7 @@
 const ISO_ICON = ({ src, alt, position, rotate = 0 }) => {
     return (
       <div
-        className={`absolute ${position} z-20 w-[65px] h-[65px] bg-light_blue rounded-[15px] drop-shadow-sm`}
+        className={`absolute hidden md:block ${position} z-20 w-[65px] h-[65px] bg-light_blue rounded-[15px] drop-shadow-sm`}
         style={{ transform: `rotate(${rotate}deg)` }}
       >
         <img

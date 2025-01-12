@@ -9,7 +9,7 @@ import Search from "./components/Search"
 
 const page = () => {
   return (
-    <div className="p-2" >
+    <div className="p-2 " >
 
     <Hero />
     <Clients />

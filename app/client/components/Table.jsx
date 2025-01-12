@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
 // Mock Data
-const mockData = Array.from({ length: 20 }, (_, i) => ({
+const mockData = Array.from({ length: 100 }, (_, i) => ({
   id: i + 1,
   name: `User ${i + 1}`,
   country: `Country ${i + 1}`,
@@ -66,12 +66,12 @@ const Table = ({clientName}) => {
   return (
     <div className="bg-white px-[30px] p-6 rounded-[20px] shadow-lg">
       {/* Header */}
-      <div className="flex px-[30px] justify-between items-center mb-6">
-        <div className="mb-[38px]">
+      <div className="flex pt-[30px] px-[30px] justify-between items-center mb-6">
+        <div className="">
           <h1 className="text-2xl mb-2 font-bold text-gray-800">All Clients</h1>
           <p className="text-dark_blue">Active Members</p>
         </div>
-        <div className="flex space-x-4">
+        <div className="flex  space-x-4">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <SortFilter sortBy={sortBy} setSortBy={setSortBy} />
         </div>
@@ -79,15 +79,15 @@ const Table = ({clientName}) => {
 
       {/* Table */}
       <div className="px-[30px]">
-        <table className="w-full ">
+        <table className="w-full">
           <thead>
             <tr className="bg-white text-start text-table_header text-[14px] font-semibold border-b w-full border-gray-300">
-              <th className="text-left  py-[24px]">Name</th>
-              <th className="text-left  py-[24px]">Country</th>
-              <th className="text-left  py-[24px]">Accreditation</th>
-              <th className="text-left  py-[24px]">Email</th>
-              <th className="text-left  py-[24px]">Organization</th>
-              <th className="text-center  py-[24px]">Actions</th>
+              <th className="text-left px-[24px]  py-[24px]">Name</th>
+              <th className="text-left px-[24px] py-[24px]">Country</th>
+              <th className="text-left px-[24px]  py-[24px]">Accreditation</th>
+              <th className="text-left px-[24px]  py-[24px]">Email</th>
+              <th className="text-left px-[24px]  py-[24px]">Organization</th>
+              <th className="text-center px-[24px]  py-[24px]">Actions</th>
             </tr>
           </thead>
 
@@ -97,12 +97,12 @@ const Table = ({clientName}) => {
                 key={item.id}
                 className="border-b  font-medium text-[14px] text-table border-gray-200"
               >
-                <td className=" py-[24px]">{item.name}</td>
-                <td className=" py-[24px]">{item.country}</td>
-                <td className=" py-[24px]">{item.accreditation}</td>
-                <td className=" py-[24px]">{item.email}</td>
-                <td className=" py-[24px]">{item.organization}</td>
-                <td className="  py-[24px] text-center">
+                <td className=" px-[24px] py-[24px]">{item.name}</td>
+                <td className=" px-[24px] py-[24px]">{item.country}</td>
+                <td className=" px-[24px] py-[24px]">{item.accreditation}</td>
+                <td className=" px-[24px] py-[24px]">{item.email}</td>
+                <td className=" px-[24px] py-[24px]">{item.organization}</td>
+                <td className=" px-[24px] py-[24px] text-center">
                   <button className="px-[12px] w-[140px] h-[33px] py-[4px] rounded-[10px] bg-dark_blue text-white  hover:bg-blue-800">
                     Details
                   </button>
