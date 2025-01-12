@@ -63,7 +63,7 @@ const Table = ({ clientName }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-[20px] shadow-lg">
+    <div className="bg-white md:p-6 p-4 rounded-[20px] shadow-lg">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 px-4 sm:px-[30px] mb-6">
         <div>
@@ -161,7 +161,7 @@ const Table = ({ clientName }) => {
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={handlePageClick}
-          containerClassName="flex text-[12px]  md:gap-[30px]  items-center space-x-4"
+          containerClassName="flex text-[12px]  md:gap-[30px]  items-center space-x-2 md:space-x-4"
           activeLinkClassName="!bg-[#023562] text-[12px] py-[2px]  !text-white" // Fixed active class application
           pageClassName=" w-[26px] text-[12px]   text-[12px]   h-[24px] border rounded-[3px] bg-[#F5F7FA] hover:bg-gray-200 transition"
           pageLinkClassName="block  py-[2px] w-full h-full text-center"
