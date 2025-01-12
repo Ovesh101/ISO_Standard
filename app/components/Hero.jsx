@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="rounded-[20px] shadow-md relative pt-[60px] sm:pt-[100px] bg-gradient-to-b from-[#046CC8] via-[#046CC8] to-dark_blue text-white flex flex-col items-center justify-center px-4 sm:px-6 text-center">
       {/* Title */}
-      <div className="text-[32px] sm:text-[60px] leading-[40px] sm:leading-[70px] w-full sm:w-[615px] font-bold mb-4">
+      <div className="text-[32px] sm:text-[60px] leading-[40px] sm:leading-[70px] w-full md:w-[615px] font-bold mb-4">
         Atlantic Certification Services
       </div>
 
@@ -25,9 +25,9 @@ const Hero = () => {
       </button>
 
       {/* Certificate Rectangle */}
-      <div className="border-t-2 space-y-4 sm:space-y-[47px] pt-6 sm:pt-[47px] mt-6 sm:mt-[58px] border-light_blue bg-white rounded-tl-[20px] sm:rounded-tl-[40px] w-full sm:w-[1200px] rounded-tr-[20px] sm:rounded-tr-[40px] p-4 sm:p-6 relative">
+      <div className="border-t-2 space-y-4 sm:space-y-[47px] pt-6 sm:pt-[47px] mt-6 sm:mt-[58px] border-light_blue bg-white rounded-tl-[20px] sm:rounded-tl-[40px] w-full md:w-[1200px] rounded-tr-[20px] sm:rounded-tr-[40px] p-4 sm:p-6 relative">
         {/* Horizontal Light Blue Line */}
-        <div className="bg-light_blue rounded-[10px] sm:rounded-[20px] h-[30px] sm:h-[47px] w-full sm:w-[750px] mx-auto mb-4"></div>
+        <div className="bg-light_blue rounded-[10px] sm:rounded-[20px] h-[30px] sm:h-[47px] w-[80%] sm:w-[750px] mx-auto mb-4"></div>
 
         {/* Three Horizontal Design Lines */}
         <div className="flex flex-col space-y-4 sm:space-y-[47px] items-center gap-2 mb-6">
@@ -41,12 +41,12 @@ const Hero = () => {
           <img
             src="/SVG/sign.svg"
             alt="Icon"
-            className="w-[80px] sm:w-[136px] h-auto"
+            className="w-[80px]   md:w-[136px] h-[38px]"
           />
           <img
             src="/SVG/trophy.svg"
             alt="Icon"
-            className="w-[60px] sm:w-[96px] h-auto"
+            className="w-[60px]  md:w-[96px] md:h-[38px]"
           />
         </div>
       </div>

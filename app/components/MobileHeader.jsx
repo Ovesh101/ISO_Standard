@@ -57,7 +57,7 @@ export default function MobileHeader() {
 
 
       <div
-        className={`absolute w-full top-0 p-2    left-0 bg-white z-30 rounded-[20px] shadow-lg transition-transform duration-300 ${
+        className={`absolute w-[95%]  top-0 p-2    left-3 bg-white z-30 rounded-[20px] shadow-lg transition-transform duration-300 ${
           menuOpen ? "translate-y-[100px]" : "-translate-y-full"
         }`}
       >

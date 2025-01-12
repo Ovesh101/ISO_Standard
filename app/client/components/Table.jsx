@@ -16,35 +16,34 @@ const mockData = Array.from({ length: 100 }, (_, i) => ({
 
 // Reusable SearchBar Component
 const SearchBar = ({ searchTerm, setSearchTerm }) => (
-    <input
-      type="text"
-      placeholder="Search..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-      className="px-4 py-2 text-[12px] bg-[#F5F7FA]  rounded-[3px] shadow-sm focus:outline-none  w-[380px] h-[38px]"
-    />
-  );
+  <input
+    type="text"
+    placeholder="Search..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className="px-4 py-2 text-[12px] bg-[#F5F7FA] rounded-[3px] shadow-sm focus:outline-none w-full sm:w-[380px] h-[38px]"
+  />
+);
 
 // Reusable SortFilter Component
 const SortFilter = ({ sortBy, setSortBy }) => (
-    <select
-      value={sortBy}
-      onChange={(e) => setSortBy(e.target.value)}
-      className="px-4 text-[12px] py-2 bg-[#F5F7FA]  rounded-[3px] shadow-sm focus:outline-none  w-[271px] h-[38px]"
-    >
-      <option value="newest" className={`text-black ${sortBy === 'newest' ? 'font-bold' : 'text-gray-500'}`}>Sort by: Newest</option>
-      <option value="oldest" className={`text-black ${sortBy === 'oldest' ? 'font-bold' : 'text-gray-500'}`}>Sort by: Oldest</option>
-    </select>
-  );
+  <select
+    value={sortBy}
+    onChange={(e) => setSortBy(e.target.value)}
+    className="px-4 text-[12px] py-2 bg-[#F5F7FA] rounded-[3px] shadow-sm focus:outline-none w-full sm:w-[271px] h-[38px]"
+  >
+    <option value="newest">Sort by: Newest</option>
+    <option value="oldest">Sort by: Oldest</option>
+  </select>
+);
 
-const Table = ({clientName}) => {
+const Table = ({ clientName }) => {
   const [searchTerm, setSearchTerm] = useState(clientName);
   const [sortBy, setSortBy] = useState("newest");
   const [currentPage, setCurrentPage] = useState(0);
 
   const itemsPerPage = 5;
 
-  // Filtered and Sorted Data
   const filteredData = mockData
     .filter(
       (item) =>
@@ -64,46 +63,69 @@ const Table = ({clientName}) => {
   };
 
   return (
-    <div className="bg-white px-[30px] p-6 rounded-[20px] shadow-lg">
+    <div className="bg-white p-6 rounded-[20px] shadow-lg">
       {/* Header */}
-      <div className="flex pt-[30px] px-[30px] justify-between items-center mb-6">
-        <div className="">
-          <h1 className="text-2xl mb-2 font-bold text-gray-800">All Clients</h1>
-          <p className="text-dark_blue">Active Members</p>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 px-4 sm:px-[30px] mb-6">
+        <div>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
+            All Clients
+          </h1>
+          <p className="text-dark_blue text-sm sm:text-base">Active Members</p>
         </div>
-        <div className="flex  space-x-4">
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <SortFilter sortBy={sortBy} setSortBy={setSortBy} />
         </div>
       </div>
 
       {/* Table */}
-      <div className="px-[30px]">
-        <table className="w-full">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[600px]">
           <thead>
-            <tr className="bg-white text-start text-table_header text-[14px] font-semibold border-b w-full border-gray-300">
-              <th className="text-left px-[24px]  py-[24px]">Name</th>
-              <th className="text-left px-[24px] py-[24px]">Country</th>
-              <th className="text-left px-[24px]  py-[24px]">Accreditation</th>
-              <th className="text-left px-[24px]  py-[24px]">Email</th>
-              <th className="text-left px-[24px]  py-[24px]">Organization</th>
-              <th className="text-center px-[24px]  py-[24px]">Actions</th>
+            <tr className="bg-white text-start text-table_header text-[12px] sm:text-[14px] font-semibold border-b w-full border-gray-300">
+              <th className="text-left px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                Name
+              </th>
+              <th className="text-left px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                Country
+              </th>
+              <th className="text-left px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                Accreditation
+              </th>
+              <th className="text-left px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                Email
+              </th>
+              <th className="text-left px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                Organization
+              </th>
+              <th className="text-center px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                Actions
+              </th>
             </tr>
           </thead>
-
-          <tbody className="">
+          <tbody>
             {currentData.map((item) => (
               <tr
                 key={item.id}
-                className="border-b  font-medium text-[14px] text-table border-gray-200"
+                className="border-b font-medium text-[12px] sm:text-[14px] text-table border-gray-200"
               >
-                <td className=" px-[24px] py-[24px]">{item.name}</td>
-                <td className=" px-[24px] py-[24px]">{item.country}</td>
-                <td className=" px-[24px] py-[24px]">{item.accreditation}</td>
-                <td className=" px-[24px] py-[24px]">{item.email}</td>
-                <td className=" px-[24px] py-[24px]">{item.organization}</td>
-                <td className=" px-[24px] py-[24px] text-center">
-                  <button className="px-[12px] w-[140px] h-[33px] py-[4px] rounded-[10px] bg-dark_blue text-white  hover:bg-blue-800">
+                <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                  {item.name}
+                </td>
+                <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                  {item.country}
+                </td>
+                <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                  {item.accreditation}
+                </td>
+                <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                  {item.email}
+                </td>
+                <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
+                  {item.organization}
+                </td>
+                <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px] text-center">
+                  <button className="px-4 w-full sm:w-[140px] py-1 rounded-lg bg-dark_blue text-white hover:bg-blue-800">
                     Details
                   </button>
                 </td>
@@ -114,7 +136,7 @@ const Table = ({clientName}) => {
       </div>
 
       {/* Pagination */}
-      <div className="mt-4 px-[30px] flex justify-end">
+      <div className="mt-4 md:px-[30px] flex justify-end">
         <ReactPaginate
           previousLabel={
             <Image
@@ -139,7 +161,7 @@ const Table = ({clientName}) => {
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={handlePageClick}
-          containerClassName="flex text-[12px] gap-[30px]  items-center space-x-4"
+          containerClassName="flex text-[12px]  md:gap-[30px]  items-center space-x-4"
           activeLinkClassName="!bg-[#023562] text-[12px] py-[2px]  !text-white" // Fixed active class application
           pageClassName=" w-[26px] text-[12px]   text-[12px]   h-[24px] border rounded-[3px] bg-[#F5F7FA] hover:bg-gray-200 transition"
           pageLinkClassName="block  py-[2px] w-full h-full text-center"
