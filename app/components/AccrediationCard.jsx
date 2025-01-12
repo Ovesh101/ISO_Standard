@@ -1,9 +1,9 @@
 const AccreditationCard = ({ image, title, description }) => {
     return (
-      <div className="flex flex-col  text-center">
+      <div className="flex flex-col">
         {/* Image */}
-        <div className="h-[387px] w-[393px] rounded-[20px] mb-4 flex items-center justify-center bg-blue-50">
-          <img src={image} alt={title} className="w-[240px] h-[321px] object-cover" />
+        <div className="md:h-[387px] md:p-0 md:w-[393px] w-[90%] h-[90%]  rounded-[20px] mb-4 flex items-center justify-center bg-blue-50">
+          <img src={image} alt={title} className="md:w-[240px] md:h-[321px] object-cover" />
         </div>
   
         {/* Title with Tick */}

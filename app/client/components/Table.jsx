@@ -136,7 +136,7 @@ const Table = ({ clientName }) => {
       </div>
 
       {/* Pagination */}
-      <div className="mt-4 md:px-[30px] flex justify-end">
+      <div className="mt-4 md:px-[30px]  flex justify-end">
         <ReactPaginate
           previousLabel={
             <Image
@@ -158,7 +158,7 @@ const Table = ({ clientName }) => {
           }
           breakLabel={"..."}
           pageCount={pageCount}
-          marginPagesDisplayed={2}
+          marginPagesDisplayed={1}
           pageRangeDisplayed={5}
           onPageChange={handlePageClick}
           containerClassName="flex text-[12px]  md:gap-[30px]  items-center space-x-2 md:space-x-4"
