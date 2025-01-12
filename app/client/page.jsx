@@ -1,11 +1,13 @@
-"use client"
+"use client";
 import { useSearchParams } from "next/navigation";
-import Table from "./components/Table";
+import dynamic from "next/dynamic";
+
+// Dynamically import the Table component without SSR
+const Table = dynamic(() => import("./components/Table"), { ssr: false });
 
 const Page = () => {
-  // Use the `useSearchParams` hook from `next/navigation` to get query parameters
   const searchParams = useSearchParams();
-  const clientName = searchParams.get("name") || "";  // Get the 'name' query parameter, defaulting to an empty string if not found
+  const clientName = searchParams.get("name") || "";  // Get the 'name' query parameter
 
   return (
     <div className="p-2">
