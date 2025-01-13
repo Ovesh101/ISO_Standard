@@ -1,6 +1,10 @@
+import TrainingCompo from "./components/TrainingCompo";
+
 const page = () => {
   return (
-    <div>page</div>
-  )
-}
-export default page
+    <main className="p-5 flex flex-col md:flex-row gap-5">
+      <TrainingCompo />
+    </main>
+  );
+};
+export default page;

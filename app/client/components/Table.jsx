@@ -10,8 +10,8 @@ const mockData = Array.from({ length: 100 }, (_, i) => ({
   name: `User ${i + 1}`,
   country: `Country ${i + 1}`,
   accreditation: `Accreditation ${i + 1}`,
-  email: `user${i + 1}@example.com`,
-  organization: `Organization ${i + 1}`,
+
+  standard: `ISO ${i + 1}`,
 }));
 
 // Reusable SearchBar Component
@@ -48,7 +48,8 @@ const Table = ({ clientName }) => {
     .filter(
       (item) =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.country.toLowerCase().includes(searchTerm.toLowerCase())
+        item.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.standard.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => (sortBy === "newest" ? b.id - a.id : a.id - b.id));
 
@@ -92,11 +93,9 @@ const Table = ({ clientName }) => {
               <th className="text-left px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
                 Accreditation
               </th>
+
               <th className="text-left px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
-                Email
-              </th>
-              <th className="text-left px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
-                Organization
+                Standard
               </th>
               <th className="text-center px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
                 Actions
@@ -118,11 +117,9 @@ const Table = ({ clientName }) => {
                 <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
                   {item.accreditation}
                 </td>
+
                 <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
-                  {item.email}
-                </td>
-                <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px]">
-                  {item.organization}
+                  {item.standard}
                 </td>
                 <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px] text-center">
                   <button className="px-4 w-full sm:w-[140px] py-1 rounded-lg bg-dark_blue text-white hover:bg-blue-800">
