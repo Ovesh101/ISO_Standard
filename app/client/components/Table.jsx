@@ -3,9 +3,11 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
+import SearchModal from "./SearchModal";
+import ClientInfoModal from "./ClientInfoModal";
 
 // Mock Data
-const mockData = Array.from({ length: 100 }, (_, i) => ({
+const mockData = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
   name: `User ${i + 1}`,
   country: `Country ${i + 1}`,
@@ -41,6 +43,9 @@ const Table = ({ clientName }) => {
   const [searchTerm, setSearchTerm] = useState(clientName);
   const [sortBy, setSortBy] = useState("newest");
   const [currentPage, setCurrentPage] = useState(0);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const [isClientInfoModalOpen, setIsClientInfoModalOpen] = useState(false);
+  const [selectedClient, setSelectedClient] = useState(null);
 
   const itemsPerPage = 5;
 
@@ -58,6 +63,21 @@ const Table = ({ clientName }) => {
     currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
   );
+
+  const handleDetailsClick = (client) => {
+    console.log("details" , client);
+    
+    setSelectedClient(client);
+    setIsSearchModalOpen(true);
+  };
+
+  const handleSearch = (certificationId) => {
+    setSelectedClient({
+      ...selectedClient,
+      certificationId,
+    });
+    setIsClientInfoModalOpen(true);
+  };
 
   const handlePageClick = (data) => {
     setCurrentPage(data.selected);
@@ -122,7 +142,10 @@ const Table = ({ clientName }) => {
                   {item.standard}
                 </td>
                 <td className="px-[12px] sm:px-[24px] py-[12px] sm:py-[24px] text-center">
-                  <button className="px-4 w-full sm:w-[140px] py-1 rounded-lg bg-dark_blue text-white hover:bg-blue-800">
+                  <button
+                    onClick={() => handleDetailsClick(item)}
+                    className="px-4 w-full sm:w-[140px] py-1 rounded-lg bg-dark_blue text-white hover:bg-blue-800"
+                  >
                     Details
                   </button>
                 </td>
@@ -168,7 +191,18 @@ const Table = ({ clientName }) => {
           disabledClassName="opacity-50 cursor-not-allowed"
           renderOnZeroPageCount={null}
         />
+
       </div>
+      <SearchModal
+        isOpen={isSearchModalOpen}
+        onClose={() => setIsSearchModalOpen(false)}
+        onSearch={handleSearch}
+      />
+      <ClientInfoModal
+        isOpen={isClientInfoModalOpen}
+        onClose={() => setIsClientInfoModalOpen(false)}
+        clientData={selectedClient}
+      />
     </div>
   );
 };

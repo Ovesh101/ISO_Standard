@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.variable}> 
       <body className="antialiased"> 
         <Toaster /> 
+        
         <Header />
         <NextUIProvider>{children}</NextUIProvider> 
         <Footer />
