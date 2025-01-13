@@ -16,9 +16,11 @@ const SearchModal = ({ isOpen, onClose, onSearch }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white max-w-md w-full rounded-lg shadow-lg p-6 mx-auto mt-20">
-        <h2 className="text-xl font-semibold text-title mb-4">Search Certification</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
+      <div className="bg-white w-full max-w-md rounded-lg shadow-lg p-6 mt-20 sm:w-11/12 md:w-8/12 lg:w-6/12">
+        <h2 className="text-xl font-semibold text-title mb-4">
+          Search Certification
+        </h2>
         <input
           type="text"
           placeholder="Enter Certification ID"

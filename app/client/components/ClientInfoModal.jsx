@@ -5,13 +5,12 @@ import React from "react";
 const ClientInfoModal = ({ isOpen, onClose, clientData }) => {
   if (!isOpen) return null; // Do not render modal if it's not open
 
-  console.log("client data" , clientData);
-  
+  console.log("client data", clientData);
 
   if (clientData.certificationId === clientData.id) {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-        <div className="bg-white max-w-lg w-full rounded-lg shadow-lg p-6 mx-auto mt-20">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
+        <div className="bg-white w-full max-w-4xl rounded-lg shadow-lg p-6 mt-20 sm:w-11/12 md:w-8/12 lg:w-6/12">
           <h2 className="text-xl font-semibold text-title mb-4">
             Client Information
           </h2>
@@ -49,8 +48,8 @@ const ClientInfoModal = ({ isOpen, onClose, clientData }) => {
     );
   } else {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-        <div className="bg-white max-w-lg w-full rounded-lg shadow-lg p-6 mx-auto mt-20">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
+        <div className="bg-white w-full max-w-4xl rounded-lg shadow-lg p-6 mt-20 sm:w-11/12 md:w-8/12 lg:w-6/12">
           <h2 className="text-xl font-semibold text-title mb-4">
             Client Information
           </h2>
