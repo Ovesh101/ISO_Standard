@@ -57,24 +57,24 @@ export default function MobileHeader() {
 
 
       <div
-        className={`absolute w-[90%]  top-0 p-2    left-5 bg-white z-30 rounded-[20px] shadow-lg transition-transform duration-300 ${
-          menuOpen ? "translate-y-[110px]" : "-translate-y-full"
+        className={`absolute w-[91%]  top-0  left-4 bg-white z-30 rounded-[20px] shadow-lg transition-transform duration-300 ${
+          menuOpen ? "translate-y-[105px]" : "-translate-y-full"
         }`}
       >
         <nav className="flex flex-col items-start space-y-6 p-6">
-          <Link href="/" className="text-[16px] font-semibold">
+          <Link href="/" onClick={()=>setMenuOpen(false)} className="text-[16px] font-semibold">
             Home
           </Link>
-          <Link href="/services" className="text-[16px] font-semibold">
+          <Link href="/services" onClick={()=>setMenuOpen(false)} className="text-[16px] font-semibold">
             Services
           </Link>
-          <Link href="/contact" className="text-[16px] font-semibold">
+          <Link href="/contact" onClick={()=>setMenuOpen(false)} className="text-[16px] font-semibold">
             Contact Us
           </Link>
-          <Link href="/about" className="text-[16px] font-semibold">
+          <Link href="/about" onClick={()=>setMenuOpen(false)} className="text-[16px] font-semibold">
             About Us
           </Link>
-          <Link href="/client" className="text-[16px] font-semibold">
+          <Link href="/client" onClick={()=>setMenuOpen(false)} className="text-[16px] font-semibold">
             Clients
           </Link>
         </nav>
