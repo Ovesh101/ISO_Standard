@@ -27,7 +27,7 @@ const Ready = () => {
       </div>
 
       {/* Right Section */}
-      <div className="flex items-center justify-center bg-white rounded-[20px] lg:rounded-[30px] shadow-lg w-full max-w-[400px] lg:max-w-[446px]">
+      <div className="flex items-center  justify-center bg-white rounded-[20px] lg:rounded-[30px] shadow-lg w-full max-w-[400px] lg:max-w-[446px]">
         {/* Logo Image */}
         <Image
           src="/header.png" // Replace with your image path

@@ -15,23 +15,27 @@ const Search = () => {
 
   return (
     <div
-      className="min-h-screen mt-2 rounded-[15px]  flex flex-col items-center justify-center p-6"
+      className=" min-h-[80vh] mt-2 rounded-[15px]  flex flex-col items-center justify-center p-6"
       style={{
         background: "radial-gradient(circle, #046CC8 22%, #023562 100%)",
       }}
     >
       {/* Title */}
-      <h1 className="text-4xl font-bold text-white mb-4">
-        Search for Clients
+      <div className="flex items-center flex-col w-full lg:w-[700px] space-y-6 lg:space-y-[34px] text-white text-center " >
+
+  
+      <h1 className="text-[36px] text-white leading-[42px] lg:text-[60px] lg:leading-[70px] font-bold">
+       Search for a client
       </h1>
 
-      {/* Description */}
-      <p className="text-lg text-gray-300 mb-8 text-center max-w-lg">
-        Enter the client name to search for their details and queries. We make it easy to manage all your client information in one place.
+      <p className="text-[18px] text-white lg:text-[28px]">
+        Enter the client name to search for their details and queries. We make
+        it easy to manage all your client information in one place.
       </p>
+     
 
       {/* Search Bar */}
-      <div className="flex w-full max-w-lg items-center">
+      <div className="flex   md:w-[70%]  items-center">
         <input
           type="text"
           value={query}
@@ -45,6 +49,7 @@ const Search = () => {
         >
           Search
         </button>
+      </div>
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ const Accrediation = () => {
       </div>
 
       {/* Accreditation Cards Section */}
-      <div className="flex flex-wrap justify-center lg:justify-start gap-6 px-4 lg:px-[130px] pt-10 lg:pt-[130px]">
+      <div className="flex flex-wrap  justify-center  md:gap-6 px-4 lg:px-[130px] pt-10 lg:pt-[130px]">
         {accreditations.map((accreditation, index) => (
           <AccreditationCard
             key={index}
