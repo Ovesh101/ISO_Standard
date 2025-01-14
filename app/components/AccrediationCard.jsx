@@ -1,9 +1,9 @@
 const AccreditationCard = ({ image, title, description }) => {
     return (
-      <div className="flex items-center justify-center flex-col">
+      <div className="flex items-center justify-between flex-col">
         {/* Image */}
-        <div className="md:h-[387px] md:p-0 p-14 md:w-[393px] w-[320px] h-[315px]   rounded-[20px] mb-4 flex items-center justify-center bg-blue-50">
-          <img src={image} alt={title} className="md:w-[240px] md:h-[321px]  object-cover" />
+        <div className=" w-[300px] h-[300px]  rounded-[20px] mb-4 flex items-center  bg-blue-50">
+          <img src={image} alt={title} className=" w-full h-full  object-contain" />
         </div>
   
         {/* Title with Tick */}
@@ -14,15 +14,15 @@ const AccreditationCard = ({ image, title, description }) => {
           <img
             src="/SVG/tick.svg"
             alt="Tick Icon"
-            className="md:w-[23px] md:h-[23px] w-[20px] h-[20px] mr-2"
+            className="md:w-[18px] md:h-[18px] w-[15px] h-[15px] mr-2"
           />
-          <h3 className="md:text-[24px] text-[18px] leading-[24px] font-semibold text-black">
+          <h3 className=" text-[16px] md:text-[18px] leading-[24px] font-semibold text-black">
             {title}
           </h3>
         </div>
   
         {/* Description */}
-        <p className="md:text-[18px] text-[14px] leading-[24px] text-custom_grey">{description}</p>
+        <p className=" text-[12px] md:text-[14px] leading-[24px] text-custom_grey">{description}</p>
       </div>
                
       </div>

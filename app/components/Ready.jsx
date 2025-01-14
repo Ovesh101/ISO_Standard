@@ -3,25 +3,26 @@ import Image from "next/image";
 const Ready = () => {
   return (
     <div
-      className="flex flex-col lg:flex-row mt-2 items-center gap-10 lg:gap-[240px] py-10 lg:py-[323px] px-6 lg:px-[107px] justify-between rounded-[15px]"
+      className="flex flex-col box lg:flex-row mt-2 items-center gap-10 md:gap-[200px] py-10 md:py-[200px] px-6 md:px-[107px] justify-center  rounded-[15px]"
       style={{
         background: "radial-gradient(circle ,  #046CC8 16%, #023562 100%)",
+        boxShadow: "0px 0px 38px #CFDAF9",
       }}
     >
       {/* Left Section */}
       <div className="flex flex-col w-full lg:w-[700px] space-y-6 lg:space-y-[34px] text-white text-center lg:text-left">
         {/* Title */}
-        <h1 className="text-[36px] leading-[42px] lg:text-[60px] lg:leading-[70px] font-bold">
+        <h1 className="text-[30px] md:text-[42px] md:font-[500] font-[400]">
           Ready to get started?
         </h1>
 
         {/* Description */}
-        <p className="text-[18px] lg:text-[28px]">
+        <p className="text-[16px] md:text-[20px] mt-[18px]  md:mt-[24px] leading-normal">
           To arrange a consultation or workshop, send us a message.
         </p>
 
         {/* Button */}
-        <button className="rounded-[15px] leading-[50px] w-full lg:w-[264px] text-[20px] lg:text-[28px] h-[60px] lg:h-[70px] mt-[30px] lg:mt-[60px] bg-light_blue text-dark_blue font-medium hover:bg-gray-200 transition">
+        <button className="rounded-[15px] leading-[50px] w-full md:w-[264px] text-[20px] lg:text-[28px] h-[60px] md:h-[70px]  md:mt-[64px] bg-light_blue text-dark_blue font-medium hover:bg-gray-200 transition">
           Contact Us
         </button>
       </div>

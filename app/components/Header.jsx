@@ -2,20 +2,20 @@ import Link from "next/link";
 import React from "react";
 import MobileHeader from "./MobileHeader";
 
-
 export default function Header() {
   return (
     <>
       {/* Desktop Header */}
-      <header className="hidden md:flex mt-2 items-center p-2 mx-2 rounded-[20px] justify-between bg-white h-[79px] shadow-md">
+      <header
+        style={{
+          boxShadow: "0px 0px 38px #CFDAF9",
+        }}
+        className="hidden md:flex mt-2 items-center p-2 mx-2 rounded-[15px] justify-between bg-white h-[79px]"
+      >
         {/* Logo */}
         <div className="flex gap-20 pl-[40px] items-center">
           <Link href="/">
-            <img
-              src="/ACS.png"
-              alt="Logo"
-              className="h-[36px] w-auto"
-            />
+            <img src="/ACS.png" alt="Logo" className="h-[36px] w-auto" />
           </Link>
           <nav className="flex space-x-10">
             <Link

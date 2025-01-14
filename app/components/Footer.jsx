@@ -4,7 +4,12 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="py-16 px-40">
+    <footer 
+    style={{
+
+      boxShadow: "0px 0px 38px #CFDAF9",
+    }}
+     className="py-16 rounded-[15px] mx-2 px-40">
       <div className="flex flex-col lg:flex-row justify-between">
         {/* Left Section */}
         <div className="flex space-y-[40px] flex-col items-start">
