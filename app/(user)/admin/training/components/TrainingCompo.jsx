@@ -69,14 +69,15 @@ const TrainingCompo = () => {
   
 
   return (
-    <div>
-      <h1>Create Accreditation</h1>
+    <>
+<div className="md:flex md:flex-row flex-col  justify-around" >
+
       <Form
         type="Training"
         onSubmit={handleCreateTraining}
         initialData={{ title: "", description: "", imageUrl: "", content:"" }}
       />
-      <h2>Accreditations List</h2>
+
       <ListView
         type="Training"
         items={training}
@@ -84,6 +85,7 @@ const TrainingCompo = () => {
         handleDelete={handleDeleteTraining}
         isDeleting={isDeleting}
       />
+      </div>
       <ModalEdit
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
@@ -91,7 +93,7 @@ const TrainingCompo = () => {
         item={currentItem}
         onSubmit={handleModalSubmit}
       />
-    </div>
+    </>
   );
 };
 

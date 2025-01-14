@@ -66,14 +66,18 @@ const CertificateCompo = () => {
   
 
   return (
-    <div>
-      <h1>Create Certificate</h1>
+    <>
+
+    <div className="md:flex md:flex-row flex-col  justify-around" >
+
+
+    
       <Form
         type="Certificate"
         onSubmit={handleCreateCertificate}
         initialData={{ title: "", description: "" , category:"" , content:"" }}
       />
-      <h2>Accreditations List</h2>
+  
       <ListView
         type="Certificate"
         items={certificate}
@@ -81,6 +85,7 @@ const CertificateCompo = () => {
         handleDelete={handleDeleteCertificate}
         isDeleting={isDeleting}
       />
+          </div>
       <ModalEdit
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
@@ -88,7 +93,7 @@ const CertificateCompo = () => {
         item={currentItem}
         onSubmit={handleModalSubmit}
       />
-    </div>
+    </>
   );
 };
 

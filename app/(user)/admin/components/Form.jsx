@@ -57,7 +57,8 @@ const Form = ({ type, initialData, onSubmit }) => {
   const renderFields = () => {
     if (type === "Accreditation" || type === "Training") {
       return (
-        <>
+        <div className="flex-col flex space-y-6" >
+            <h1> Create {type}</h1>
           <div className="flex flex-col gap-1">
             <label className="text-gray-500 text-sm">Image</label>
             <input
@@ -107,13 +108,15 @@ const Form = ({ type, initialData, onSubmit }) => {
               />
             </div>
           )}
-        </>
+        </div>
       );
     }
 
     if (type === "Certificate") {
       return (
-        <>
+
+        <div className="flex-col flex space-y-6">
+          <h1> Create {type}</h1>
           <div className="flex flex-col gap-1">
             <label className="text-gray-500 text-sm">Title</label>
             <input
@@ -153,7 +156,7 @@ const Form = ({ type, initialData, onSubmit }) => {
               className="border px-4 py-2 rounded-lg w-full"
             />
           </div>
-        </>
+        </div>
       );
     }
   };

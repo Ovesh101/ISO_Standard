@@ -25,7 +25,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <section className="sticky top-0 flex flex-col gap-10 bg-white border-r px-5 py-3 h-screen overflow-hidden w-[260px] z-50">
+    <section className="sticky top-0 flex flex-col gap-10 bg-white rounded-[20px] border-r px-5 py-3 h-screen overflow-hidden w-[260px] z-50">
       <div className="flex justify-center py-4">
         <Link href={`/`}>
           <img className="h-8" src="/ACS.png" alt="Logo" />

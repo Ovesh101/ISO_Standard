@@ -65,7 +65,7 @@ export default function AdminLayout({ children }) {
         </header>
 
         {/* Page Content */}
-        <section className="p-4">{children}</section>
+        <section className="p-4  ">{children}</section>
       </div>
     </main>
   );

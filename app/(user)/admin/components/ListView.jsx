@@ -31,8 +31,9 @@ const ListView = ({ items, handleEdit, handleDelete, isDeleting, type }) => {
     };
   
     return (
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-200 bg-white shadow-md">
+      <div className="overflow-x-auto pt-10 ">
+        <h1 className="my-5" >{type} List </h1>
+        <table className=" border-collapse border  border-gray-200 bg-white shadow-md">
           <thead>
             <tr className="bg-gray-100">
               <th className="px-4 py-2 text-left text-gray-600">Index</th>
