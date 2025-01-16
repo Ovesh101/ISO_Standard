@@ -9,7 +9,7 @@ const Footer = () => {
 
       boxShadow: "0px 0px 38px #CFDAF9",
     }}
-     className="md:py-16 py-10 px-5 rounded-[15px] mx-2  md:px-40">
+     className="md:py-16 mb-2 py-10 px-5 rounded-[15px] mx-2  md:px-40">
       <div className="flex flex-col md:flex-row justify-between">
         {/* Left Section */}
         <div className="flex pb-6 md:pb-10 space-y-[20px] md:space-y-[40px] flex-col items-start">

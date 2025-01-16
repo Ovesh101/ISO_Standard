@@ -1,79 +1,24 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
 
 const OnBoard = () => {
-  const sectionRef = useRef(null);
-  const horizontalRef = useRef(null);
-  const progressRef = useRef(null);
-
-  const [visibleContent, setVisibleContent] = useState([true, false, false]);
-
   const content = [
     {
       title: "Step 1: Introduction",
       description: "This is the introduction to our OnBoarding process.",
-      image: "/header.png",
+      image: "/SVG/Time_1.png",
     },
     {
       title: "Step 2: Details",
       description: "Here are more details about the process.",
-      image: "/header.png",
+      image: "/SVG/Time_1.png",
     },
     {
       title: "Step 3: Conclusion",
       description: "The conclusion of the OnBoarding process.",
-      image: "/header.png",
+      image: "/SVG/Time_1.png",
     },
   ];
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const horizontal = horizontalRef.current;
-    const progressBar = progressRef.current;
-
-    // Total scrollable width for the horizontal container
-    const scrollWidth = horizontal.scrollWidth - section.offsetWidth;
-
-    // GSAP Animation for Horizontal Scroll
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: () => `+=${scrollWidth}`,
-        scrub: true,
-        pin: true, // Pause vertical scroll and pin the section
-        anticipatePin: 1,
-        onUpdate: (self) => {
-          // Update progress bar
-          const progress = self.progress.toFixed(2);
-          if (progressBar) {
-            progressBar.style.width = `${progress * 100}%`;
-          }
-
-          // Reveal content based on the scroll progress
-          const newVisibleContent = content.map((_, index) => {
-            return progress >= index / (content.length - 1);
-          });
-          setVisibleContent(newVisibleContent);
-        },
-      },
-    });
-
-    timeline.to(horizontal, {
-      x: -scrollWidth,
-      ease: "sine.in",
-    });
-
-    return () => {
-      // Kill ScrollTrigger for this component
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      timeline.kill(); // Kill the timeline animation
-    };
-  }, []);
 
   return (
     <div
@@ -81,72 +26,60 @@ const OnBoard = () => {
         background: "radial-gradient(circle, #046CC8 22%, #023562 100%)",
         boxShadow: "0px 0px 38px #CFDAF9",
       }}
-      className="relative"
+      className="relative rounded-[15px] min-h-screen text-white"
     >
       {/* Section Header */}
       <div
-        className="relative py-[300px] flex items-center justify-between z-20"
+        className="relative pb-[200px] pt-[300px] flex items-center justify-center z-20"
         style={{ zIndex: 10 }}
       >
+        {/* Left Decoration */}
         <img
           src="/SVG/line_left.svg"
-          alt="Left Image"
-          className="w-[509px] h-[509px] absolute left-0 top-1/2 transform -translate-y-1/2"
+          alt="Left Decoration"
+          className="md:w-[509px] w-[150px] h-[150px] md:h-[509px] absolute left-[-20px] md:left-0 top-[60%] transform -translate-y-1/2"
         />
-        <h1 className="text-4xl text-white font-bold text-center w-full z-30">
+
+        {/* Centered Title */}
+        <h1 className="md:text-[42px] text-[20px] md:m-0 mb-10 text-white font-bold text-center w-full md:z-30">
           How to get onboard
         </h1>
+
+        {/* Right Decoration */}
         <img
           src="/SVG/line_right.svg"
-          alt="Right Image"
-          className="absolute right-0 w-[509px] h-[509px] top-1/2 transform -translate-y-1/2"
+          alt="Right Decoration"
+          className="absolute right-[-20px]  md:right-0 w-[150px] h-[150px] md:w-[509px] md:h-[509px] top-[60%] transform -translate-y-1/2"
         />
       </div>
 
-      {/* Horizontal Scroll Section */}
-      <div ref={sectionRef} className="relative h-[70vh]">
-        <div
-          ref={horizontalRef}
-          className="absolute flex space-x-10 h-full top-0"
-          style={{ width: `${content.length * 100}vw`, zIndex: 5 }}
-        >
-          {content.map((item, index) => (
-            <div
-              key={index}
-              className={`flex items-center justify-center w-[100vw] text-white ${
-                !visibleContent[index] && "opacity-0"
-              } transition-opacity duration-300`}
-            >
-              <div className="flex flex-col">
-                <h2 className="text-3xl font-bold">{item.title}</h2>
-                <p className="mt-4 text-lg">{item.description}</p>
-              </div>
+      {/* Segment 2: Static Content */}
+      <div className="flex flex-col py-20 space-y-16 md:space-y-20  px-6 md:px-20">
+        {content.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col md:flex-row items-center md:space-x-10 space-y-10 md:space-y-10"
+          >
+            {/* Text Section (Left) */}
+            <div className="flex-1 text-center md:text-left">
+              <h2 className=" text-[#F8F9FB] text-[24px] md:text-[32px] font-semibold mb-4">
+                {item.title}
+              </h2>
+              <p className=" font-[400] text-[#AAD7FF] text-[20px] md:text-[24px]">
+                {item.description}
+              </p>
+            </div>
+
+            {/* Image Section (Right) */}
+            <div className="flex-1">
               <img
                 src={item.image}
                 alt={`Step ${index + 1}`}
-                className="mt-6 w-1/3 h-auto"
+                className="w-full max-w-sm mx-auto md:max-w-md"
               />
             </div>
-          ))}
-        </div>
-
-        {/* Progress Bar */}
-        <div className="absolute bottom-0 left-10 right-10 z-30 pb-4">
-          <div className="relative h-1 bg-gray-500">
-            <div
-              ref={progressRef}
-              className="absolute h-1 bg-white"
-              style={{ width: "0%" }}
-            />
           </div>
-          <div className="flex justify-between mt-4 text-white">
-            {content.map((_, index) => (
-              <span key={index} className="text-sm">
-                Step {index + 1}
-              </span>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
