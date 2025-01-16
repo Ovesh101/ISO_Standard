@@ -17,12 +17,12 @@ const Ready = () => {
         </h1>
 
         {/* Description */}
-        <p className="text-[16px] md:text-[20px] mt-[18px]  md:mt-[24px] leading-normal">
+        <p className="text-[14px] md:text-[16px] mt-[14px]  md:mt-[16px] leading-normal">
           To arrange a consultation or workshop, send us a message.
         </p>
 
         {/* Button */}
-        <button className="rounded-[15px] leading-[50px] w-full md:w-[264px] text-[20px] lg:text-[28px] h-[60px] md:h-[70px]  md:mt-[64px] bg-light_blue text-dark_blue font-medium hover:bg-gray-200 transition">
+        <button className="rounded-[15px] leading-[50px] w-full md:w-[264px] text-[20px] md:text-[24px] h-[60px] md:h-[70px]  md:mt-[64px] bg-light_blue text-dark_blue font-medium hover:bg-gray-200 transition">
           Contact Us
         </button>
       </div>

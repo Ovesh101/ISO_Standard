@@ -15,7 +15,7 @@ export default function Header() {
         {/* Logo */}
         <div className="flex gap-20 pl-[40px] items-center">
           <Link href="/">
-            <img src="/ACS.png" alt="Logo" className="h-[36px] w-auto" />
+            <img src="/header.png" alt="Logo" className="h-[36px] w-auto" />
           </Link>
           <nav className="flex space-x-10">
             <Link

@@ -54,115 +54,99 @@ const Form = ({ type, initialData, onSubmit }) => {
     setIsLoading(false);
   };
 
-  const renderFields = () => {
-    if (type === "Accreditation" || type === "Training") {
-      return (
-        <div className="flex-col flex space-y-6" >
-            <h1> Create {type}</h1>
-          <div className="flex flex-col gap-1">
+  const renderFields = () => (
+    <div className="flex flex-col space-y-4">
+          {type && <h1 className="text-lg font-semibold text-center">Create {type}</h1>}
+      {["Accreditation", "Training"].includes(type) && (
+        <>
+     
+          <div className="flex flex-col">
             <label className="text-gray-500 text-sm">Image</label>
             <input
               type="file"
               accept="image/jpeg, image/webp"
               onChange={handleImageChange}
-              className="border px-4 py-2 rounded-lg w-full"
+              className="border px-3 py-1.5 rounded-md text-sm"
             />
             {imagePreview && (
               <img
                 src={imagePreview}
                 alt="Preview"
-                className="mt-2 w-40 h-40 object-cover rounded-lg"
+                className="mt-2 max-w-full max-h-40 object-cover rounded-md"
               />
             )}
             {imageError && (
               <span className="text-red-500 text-sm">{imageError}</span>
             )}
           </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-gray-500 text-sm">Title</label>
-            <input
-              type="text"
-              value={data?.title || ""}
-              onChange={(e) => handleData("title", e.target.value)}
-              placeholder="Enter Title"
-              className="border px-4 py-2 rounded-lg w-full"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-gray-500 text-sm">Description</label>
-            <textarea
-              value={data?.description || ""}
-              onChange={(e) => handleData("description", e.target.value)}
-              placeholder="Enter Description"
-              className="border px-4 py-2 rounded-lg w-full"
-            />
-          </div>
-          {type === "Training" && (
-            <div className="flex flex-col gap-1">
-              <label className="text-gray-500 text-sm">Content</label>
-              <textarea
-                value={data?.content || ""}
-                onChange={(e) => handleData("content", e.target.value)}
-                placeholder="Enter Description"
-                className="border px-4 py-2 rounded-lg w-full"
-              />
-            </div>
-          )}
+        </>
+      )}
+
+      <div className="flex flex-col">
+        <label className="text-gray-500 text-sm">Title</label>
+        <input
+          type="text"
+          value={data?.title || ""}
+          onChange={(e) => handleData("title", e.target.value)}
+          placeholder="Enter Title"
+          className="border px-3 py-1.5 rounded-md text-sm"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label className="text-gray-500 text-sm">Description</label>
+        <textarea
+          value={data?.description || ""}
+          onChange={(e) => handleData("description", e.target.value)}
+          placeholder="Enter Description"
+          className="border px-3 py-1.5 rounded-md text-sm resize-none"
+        />
+      </div>
+
+      {type === "Training" && (
+        <div className="flex flex-col">
+          <label className="text-gray-500 text-sm">Content</label>
+          <textarea
+            value={data?.content || ""}
+            onChange={(e) => handleData("content", e.target.value)}
+            placeholder="Enter Content"
+            className="border px-3 py-1.5 rounded-md text-sm resize-none"
+          />
         </div>
-      );
-    }
+      )}
 
-    if (type === "Certificate") {
-      return (
-
-        <div className="flex-col flex space-y-6">
-          <h1> Create {type}</h1>
-          <div className="flex flex-col gap-1">
-            <label className="text-gray-500 text-sm">Title</label>
-            <input
-              type="text"
-              value={data?.title || ""}
-              onChange={(e) => handleData("title", e.target.value)}
-              placeholder="Enter Title"
-              className="border px-4 py-2 rounded-lg w-full"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-gray-500 text-sm">Description</label>
-            <input
-              type="text"
-              value={data?.description || ""}
-              onChange={(e) => handleData("description", e.target.value)}
-              placeholder="Enter Title"
-              className="border px-4 py-2 rounded-lg w-full"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
+      {type === "Certificate" && (
+        <>
+      
+          <div className="flex flex-col">
             <label className="text-gray-500 text-sm">Category</label>
             <input
               type="text"
               value={data?.category || ""}
               onChange={(e) => handleData("category", e.target.value)}
               placeholder="Enter Category"
-              className="border px-4 py-2 rounded-lg w-full"
+              className="border px-3 py-1.5 rounded-md text-sm"
             />
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col">
             <label className="text-gray-500 text-sm">Content</label>
             <textarea
               value={data?.content || ""}
               onChange={(e) => handleData("content", e.target.value)}
               placeholder="Enter Content"
-              className="border px-4 py-2 rounded-lg w-full"
+              className="border px-3 py-1.5 rounded-md text-sm resize-none"
             />
           </div>
-        </div>
-      );
-    }
-  };
+        </>
+      )}
+    </div>
+  );
 
   return (
-    <form onSubmit={handleCreate} className="flex flex-col gap-3">
+    <form
+      onSubmit={handleCreate}
+      className="flex flex-col space-y-4 max-w-screen-sm mx-auto px-4"
+    >
       {renderFields()}
       <Button isLoading={isLoading} isDisabled={isLoading} type="submit">
         Create {type}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { CrossIcon } from "lucide-react";
 
 export default function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,16 +38,16 @@ export default function MobileHeader() {
           Get a quote
         </button>
         <button
-          className="text-white text-2xl focus:outline-none"
+          className="text-white h-[36px] w-[36px] focus:outline-none"
           onClick={toggleMenu}
         >
           {menuOpen ? (
-            <span className="text-[28px]">&times;</span> // Cross icon
+            <span className=" h-full w-full"><CrossIcon /></span> // Cross icon
           ) : (
             <img
               src="/SVG/menu.svg"
               alt="Menu"
-              className="h-[36px] w-[36px]"
+              className="h-full w-full"
             />
           )}
         </button>

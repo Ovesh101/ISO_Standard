@@ -10,6 +10,7 @@ export default function AdminLayout({ children }) {
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
+   
   };
 
   const closeSidebar = () => {
@@ -34,7 +35,7 @@ export default function AdminLayout({ children }) {
   }, [isSidebarOpen]);
 
   return (
-    <main className="flex min-h-screen bg-gray-100">
+    <main className=" flex bg-gray-100">
       {/* Sidebar */}
       <div
         ref={sidebarRef}
@@ -48,13 +49,13 @@ export default function AdminLayout({ children }) {
             <X className="h-6 w-6" />
           </button>
         </div>
-        <Sidebar />
+        <Sidebar closeSidebar={closeSidebar} />
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex flex-col ">
         {/* Header */}
-        <header className="bg-white shadow-md p-4 flex justify-between items-center">
+        <header className="bg-white w-full shadow-md p-4 flex justify-between items-center">
           <button
             onClick={toggleSidebar}
             className="block md:hidden text-gray-700"

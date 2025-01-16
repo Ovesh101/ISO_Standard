@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import toast from "react-hot-toast";
 
-export default function Sidebar() {
+export default function Sidebar({closeSidebar}) {
   const menuList = [
     {
       name: "Accreditation",
@@ -31,9 +31,9 @@ export default function Sidebar() {
           <img className="h-8" src="/ACS.png" alt="Logo" />
         </Link>
       </div>
-      <ul className="flex-1 h-full overflow-y-auto flex flex-col gap-4">
+      <ul  className="flex-1 h-full overflow-y-auto flex flex-col gap-4">
         {menuList.map((item, key) => (
-          <Tab item={item} key={key} />
+          <Tab  closeSidebar={closeSidebar}  item={item} key={key} />
         ))}
       </ul>
       <div className="flex justify-center">
@@ -43,11 +43,11 @@ export default function Sidebar() {
   );
 }
 
-function Tab({ item }) {
+function Tab({ item , closeSidebar }) {
   const pathname = usePathname();
   const isSelected = pathname === item.link;
   return (
-    <Link href={item.link}>
+    <Link onClick={closeSidebar} href={item.link}>
       <li
         className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold ease-soft-spring transition-all duration-300
         ${isSelected ? "bg-[#879fff] text-white" : "bg-white text-black"} 
