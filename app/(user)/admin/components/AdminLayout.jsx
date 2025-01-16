@@ -35,7 +35,7 @@ export default function AdminLayout({ children }) {
   }, [isSidebarOpen]);
 
   return (
-    <main className=" flex bg-gray-100">
+    <main className=" flex  justify-between bg-gray-100">
       {/* Sidebar */}
       <div
         ref={sidebarRef}
@@ -53,7 +53,7 @@ export default function AdminLayout({ children }) {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col ">
+      <div className="flex w-full flex-col ">
         {/* Header */}
         <header className="bg-white w-full shadow-md p-4 flex justify-between items-center">
           <button
@@ -66,7 +66,7 @@ export default function AdminLayout({ children }) {
         </header>
 
         {/* Page Content */}
-        <section className="p-4  ">{children}</section>
+        <section className="md:p-4  ">{children}</section>
       </div>
     </main>
   );

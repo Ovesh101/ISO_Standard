@@ -50,14 +50,20 @@ const Table = ({ clientName }) => {
   const itemsPerPage = 5;
 
   const filteredData = mockData
-    .filter(
-      (item) =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.standard.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.standard.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .sort((a, b) => (sortBy === "newest" ? b.id - a.id : a.id - b.id));
+  .filter((item) => {
+    if (!searchTerm.trim()) {
+      // If searchTerm is empty, return all items
+      return true;
+    }
+    const searchWords = searchTerm.split(" ").filter((word) => word.trim() !== "");
+    return searchWords.some((word) =>
+      [item.name, item.country, item.accreditation, item.standard]
+        .some((field) => field.toLowerCase().includes(word.toLowerCase()))
+    );
+  })
+  .sort((a, b) => (sortBy === "newest" ? b.id - a.id : a.id - b.id));
+
+
 
   const pageCount = Math.ceil(filteredData.length / itemsPerPage);
   const currentData = filteredData.slice(

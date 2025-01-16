@@ -145,7 +145,7 @@ const Form = ({ type, initialData, onSubmit }) => {
   return (
     <form
       onSubmit={handleCreate}
-      className="flex flex-col space-y-4 max-w-screen-sm mx-auto px-4"
+      className="flex flex-col space-y-4 max-w-screen mx-auto px-4"
     >
       {renderFields()}
       <Button isLoading={isLoading} isDisabled={isLoading} type="submit">
