@@ -54,6 +54,7 @@ const Table = ({ clientName }) => {
       (item) =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.standard.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.standard.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => (sortBy === "newest" ? b.id - a.id : a.id - b.id));

@@ -40,16 +40,18 @@ const CertificateCompo = ({ all_Certificate }) => {
         body: JSON.stringify(data), // Send data to the API
       });
 
+      const response = await responseData.json();
+
       // Parse the response from the API
 
-      console.log("response data in certificate", responseData);
+      console.log("response data in certificate", response);
 
       // Check if the response is successful
-      if (responseData.ok) {
+      if (response.data) {
         // Just append the data to the state without relying on API response
         setCertificate((prev) => [
           ...prev,
-          { ...responseData.data }, // Append the data with a new id
+          {...response.data} , // Append the data with a new id
         ]);
       } else {
       
@@ -91,25 +93,74 @@ const CertificateCompo = ({ all_Certificate }) => {
   };
   
 
-  const handleDeleteCertificate = (id) => {
-    setIsDeleting(true);
-    setCertificate((prev) => prev.filter((acc) => acc.id !== id));
-    setIsDeleting(false);
+  const handleDeleteCertificate = async (id) => {
+    try {
+      // Step 1: Ask for confirmation before proceeding with deletion
+      const isConfirmed = window.confirm("Are you sure you want to delete this certificate?");
+  
+      if (!isConfirmed) {
+        alert("Deletion canceled.");
+        return; // Stop further execution if the user cancels
+      }
+  
+      // Step 2: Make API request to delete the certificate if confirmed
+      const response = await fetch(`${URL}/certificate/${id}`, {
+        method: "DELETE",
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Error deleting certificate with id ${id}`);
+      }
+  
+      // Step 4: Filter out the deleted certificate from the state
+      setCertificate((prev) => prev.filter((acc) => acc._id !== id));
+  
+    } catch (error) {
+      console.error("Error deleting certificate:", error);
+      alert("There was an error deleting the certificate.");
+    } finally {
+      setIsDeleting(false);
+    }
   };
+  
+  
 
-  const handleModalSubmit = (updatedData) => {
+  const handleModalSubmit = async (updatedData) => {
     console.log("updated data", updatedData);
-
-    // Update the accreditations state
-    setCertificate((prev) =>
-      prev.map((item) =>
-        item.id === updatedData.id ? { ...item, ...updatedData } : item
-      )
-    );
-
-    // Close the modal
-    setModalOpen(false);
+  
+    try {
+      // Make the API PUT request
+      const responseData = await fetch(`${URL}/certificate/${updatedData._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedData), // Send data to the API
+      });
+  
+      const response = await responseData.json();
+  
+      console.log("updated data in certificate", response);
+  
+      // Check if the response is successful
+      if (response.data) {
+        setCertificate((prev) =>
+          prev.map((item) =>
+            item._id === response.data._id // Make sure you are matching _id here
+              ? { ...item, ...response.data } // Update the item with updated data
+              : item
+          )
+        );
+      } else {
+        console.error("Error updating certificate:", response);
+      }
+    } catch (error) {
+      console.error("Error making API request:", error);
+    } finally {
+      setModalOpen(false); // Close the modal
+    }
   };
+  
 
   return (
     <>

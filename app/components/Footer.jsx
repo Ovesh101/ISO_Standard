@@ -9,10 +9,10 @@ const Footer = () => {
 
       boxShadow: "0px 0px 38px #CFDAF9",
     }}
-     className="py-16 rounded-[15px] mx-2 px-40">
-      <div className="flex flex-col lg:flex-row justify-between">
+     className="md:py-16 py-10 px-5 rounded-[15px] mx-2  md:px-40">
+      <div className="flex flex-col md:flex-row justify-between">
         {/* Left Section */}
-        <div className="flex space-y-[40px] flex-col items-start">
+        <div className="flex pb-6 md:pb-10 space-y-[20px] md:space-y-[40px] flex-col items-start">
           {/* Logo */}
           <Image
             src="/header.png"
@@ -54,10 +54,10 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex gap-[30px]">
+        <div className="flex md:flex-row flex-col gap-[30px]">
           {/* Company Section */}
           <div className="mr-[70px]">
-            <h4 className="text-[20px] text-title mb-[24px] font-semibold">Company</h4>
+            <h4 className="text-[20px] text-title mb-[16px] md:mb-[24px] font-semibold">Company</h4>
             <ul className="space-y-[12px] text-sm text-black">
               <li>
                 <Link href="/about-us">About Us</Link>
@@ -83,7 +83,7 @@ const Footer = () => {
 
           {/* Support Section */}
           <div className="mr-[70px]">
-            <h4 className="text-[20px] text-title mr-[30px] mb-[24px] font-semibold">Support</h4>
+            <h4 className="text-[20px] text-title mr-[30px] mb-[16px] md:mb-[24px] font-semibold">Support</h4>
             <ul className="space-y-[12px] text-sm text-black">
               <li>
                 <Link href="/privacy-policy">Privacy Policy</Link>
@@ -99,14 +99,14 @@ const Footer = () => {
 
           {/* Stay Up-to-Date Section */}
           <div className="space-y-[12px] text-sm text-black">
-            <h4 className="text-[20px] text-title mb-[24px] font-semibold">Stay Up-to-Date</h4>
+            <h4 className="text-[20px] text-title mb-[16px] md:mb-[24px] font-semibold">Stay Up-to-Date</h4>
             <div className="flex   justify-between  space-y-[12px] relative items-center">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-[255px] h-[40px] text-[14px] rounded-[14px] placeholder-dark_blue px-3 text-black bg-light_blue"
+                className="w-[255px] h-[40px] text-[12px] md:text-[14px] rounded-[14px] placeholder-dark_blue px-3 text-black bg-light_blue"
               />
-              <button className="absolute right-3 top-0">
+              <button className="absolute md:right-3 right-[3.2rem] top-[-1px] md:top-0">
                 <Image
                   src="/SVG/send.svg"
                   alt="Send"
